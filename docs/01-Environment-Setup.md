@@ -1,5 +1,13 @@
 # Environment Setup
 
+**Overview**
+
+
+![image](https://github.com/user-attachments/assets/f735ccd2-b936-4f7a-8be6-0008baa569c2)
+
+
+------------------------------------------------------------------------------------------
+
 1. Set up VMWare machines
 
 ![image](https://github.com/user-attachments/assets/8ba50fef-601a-42b3-8677-86377c002542)
@@ -75,3 +83,6 @@ save
 
 **WAN → LAN**	
 None normally required -All sync is outbound only from LAN  
+
+![image](https://github.com/user-attachments/assets/36ce1e95-97f2-4d20-9a62-4fec1659582e)
+
