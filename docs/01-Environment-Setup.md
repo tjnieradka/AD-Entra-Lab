@@ -1,88 +1,63 @@
-# Environment Setup
+# 🔧 Lab Environment Overview
 
-**Overview**
+This virtual lab simulates a hybrid on-premises network integrated with **Microsoft Entra ID** (formerly Azure Active Directory). It provides a hands-on environment to explore Active Directory domain services, Entra Connect synchronization, firewall policies, and DMZ architecture using **VyOS 1.3** as a virtual router/firewall.
 
+## 🏗️ Architecture Highlights
+
+- **VyOS Router (1.3 Equuleus)** provides routing, zone-based firewalling, and NAT.
+  - **WAN (VMnet8)**: NAT interface for outbound internet/Entra connectivity
+  - **LAN (VMnet2)**: Internal subnet for domain services and clients
+  - **DMZ (VMnet3)**: Segregated network for web-accessible services
+- **Active Directory Domain Controller (Windows Server 2022)** with DNS/DHCP roles
+- **Entra Connect Server (Windows Server 2022)** to sync on-prem AD to Microsoft Entra ID
+- **Windows 11 and Ubuntu clients** connected to the LAN subnet via DHCP
+- **Ubuntu Web Server** hosted in the DMZ to simulate a public-facing server
+- **Microsoft Entra ID (Cloud)** accessed over HTTPS for directory sync and auth
+
+## 🌐 Subnet Configuration
+
+| Zone      | Interface   | Subnet             | Notes                              |
+|-----------|-------------|--------------------|-------------------------------------|
+| LAN       | VMnet2      | 192.168.10.0/24    | Static: `.10–.50`, DHCP: `.100–.200`|
+| DMZ       | VMnet3      | 192.168.20.0/24    | Static IPs assigned manually       |
+| WAN (NAT) | VMnet8      | 192.168.35.0/24    | VMware NAT to Internet             |
+
+## 💻 Virtual Machines Summary
+
+| VM Name           | vCPU | RAM  | Disk | NIC(s)           | OS/Role                                     |
+|-------------------|------|------|------|------------------|---------------------------------------------|
+| `AD-DC`           | 2    | 6 GB | 130 GB | VMnet2           | Windows Server 2022 – AD, DNS, DHCP         |
+| `EntraConnect`    | 2    | 4 GB | 130 GB | VMnet2           | Windows Server 2022 – Entra Connect         |
+| `Win11-Client`    | 2    | 4 GB | 80 GB | VMnet2           | Windows 11 – DHCP, AD-joined                |
+| `UbuntuClient`    | 2    | 2 GB | 30 GB | VMnet2           | Ubuntu 20 Desktop – DHCP                    |
+| `VyOS`            | 1    | 1 GB | 10 GB | VMnet2/3/8       | VyOS 1.3 – Router + ZBF                     |
+| `UbuntuWebDMZ`    | 2    | 2 GB | 30 GB | VMnet3           | Ubuntu 20 Server – Static IP in DMZ         |
+
+## ☁️ Microsoft Entra ID
+
+- Cloud Directory: `EntraTenantName.onmicrosoft.com`
+- Accessible from VyOS WAN interface via NAT
+- Required for synchronization and token-based authentication
+
+## 🔐 Firewall and Security
+
+- VyOS uses **zone-based firewall (ZBF)** rules to restrict traffic between zones
+- Inbound/Outbound rules are defined per zone-pair
+- Only required ports for Entra Connect and AD traffic are allowed
+
+## 🖥️ VMWare Setup
+
+- This is how the above environment appears on VMWare Workstation
 
 ![image](https://github.com/user-attachments/assets/f735ccd2-b936-4f7a-8be6-0008baa569c2)
 
 
 ------------------------------------------------------------------------------------------
-
-1. Set up VMWare machines
-
-![image](https://github.com/user-attachments/assets/8ba50fef-601a-42b3-8677-86377c002542)
-
-2. Configure VyOS open source router on a VMWare machine.
-
-   VyOS 1.3 Configuration:
-```
-configure
-
-# Interfaces
-set interfaces ethernet eth0 address dhcp
-set interfaces ethernet eth0 description 'WAN'
-set interfaces ethernet eth1 address '192.168.10.1/24'
-set interfaces ethernet eth1 description 'LAN'
-set interfaces ethernet eth2 address '192.168.20.1/24'
-set interfaces ethernet eth2 description 'DMZ'
-
-# Zone-based firewall
-set zone-policy zone WAN interface eth0
-set zone-policy zone LAN interface eth1
-set zone-policy zone DMZ interface eth2
-set zone-policy zone WAN default-action drop
-set zone-policy zone LAN default-action drop
-set zone-policy zone DMZ default-action drop
-
-
-# Firewall Rules (LAN to WAN - basic)
-set firewall name LAN-to-WAN default-action drop
-set firewall name LAN-to-WAN rule 10 action accept
-set firewall name LAN-to-WAN rule 10 state established enable
-set firewall name LAN-to-WAN rule 10 state related enable  # "if the connection was initiated from the LAN, this rule allows the response back to the LAN"
-
-set firewall name LAN-to-WAN rule 20 action accept
-set firewall name LAN-to-WAN rule 20 protocol tcp
-set firewall name LAN-to-WAN rule 20 destination port 443  # HTTPS
-
-set firewall name LAN-to-WAN rule 30 action accept
-set firewall name LAN-to-WAN rule 30 protocol tcp
-set firewall name LAN-to-WAN rule 30 destination port 80   # HTTP
-
-set firewall name LAN-to-WAN rule 40 action accept
-set firewall name LAN-to-WAN rule 40 protocol tcp
-set firewall name LAN-to-WAN rule 40 destination port 389  # LDAP
-
-set firewall name LAN-to-WAN rule 50 action accept
-set firewall name LAN-to-WAN rule 50 protocol tcp
-set firewall name LAN-to-WAN rule 50 destination port 88   # Kerberos
-
-set firewall name LAN-to-WAN rule 60 action accept
-set firewall name LAN-to-WAN rule 60 protocol tcp
-set firewall name LAN-to-WAN rule 60 destination port 445  # SMB
-
-set firewall name LAN-to-WAN rule 70 action accept
-set firewall name LAN-to-WAN rule 70 protocol udp
-set firewall name LAN-to-WAN rule 70 destination port 123  # NTP
-
-# Apply zone-to-zone policy
-set zone-policy zone LAN from WAN firewall name LAN-to-WAN
-
-commit
-save
-```
-
-**Entra Connect Port Requirements**  
-**LAN → WAN**  
-**TCP	443	HTTPS** (Azure AD Connect to Entra endpoints)	- Mandatory for sync, token auth, service access  
-**TCP	80	HTTP** (Redirect or telemetry)	- Optional – used for fallback & redirect  
-**TCP	389	LDAP** to on-prem AD (internal)	- Needed within LAN only, for AD sync  
-**TCP	88	Kerberos** auth to domain controller	- Also LAN-only  
-**TCP	445	SMB** (Group Policy, logon scripts)	- Also LAN-only, avoid exposing externally  
-**UDP	123	NTP** (Time sync with Internet or internal NTP)	- Needed if not syncing time locally  
-
-**WAN → LAN**	
-None normally required -All sync is outbound only from LAN  
-
-![image](https://github.com/user-attachments/assets/36ce1e95-97f2-4d20-9a62-4fec1659582e)
-
+| VM Name           | vCPU | RAM (GB) | NICs        | Disk Space | Operating System             |
+|-------------------|------|----------|-------------|------------|------------------------------|
+| VYOS-ROUTER       | 1    | 1        | 3 (WAN, LAN, DMZ) | 10 GB       | VyOS 1.3 (Equuleus)           |
+| VANDC1-W2022           | 2    | 6        | 1 (LAN)     | 130 GB      | Windows Server 2022 (AD, DNS, DHCP) |
+| VANEC1-W2022   | 2    | 4        | 1 (LAN)     | 130 GB      | Windows Server 2022 (Entra Connect) |
+| VANCL11-W11      | 2    | 4        | 1 (LAN)     | 80 GB      | Windows 11 Pro (DHCP client)               |
+| VANCL2-UBUNTU    | 2    | 2        | 1 (LAN)     | 30 GB      | Ubuntu 22.04 LTS Desktop  (DHCP client)    |
+| VANSRV-UBUNTU    | 2    | 2        | 1 (DMZ)     | 30 GB      | Ubuntu 22.04 LTS Server (DMZ Web server)      |
