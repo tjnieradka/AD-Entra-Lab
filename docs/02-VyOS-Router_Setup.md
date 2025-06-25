@@ -10,8 +10,6 @@ Official documentation (rolling & 1.3):
 
 The following are commands used to configure the VyOS router and firewall. The main obhjective is to allow connectivity between the on-premise Active Directory and Entra.
 ```
-configure
-
 # Interfaces
 set interfaces ethernet eth0 address dhcp
 set interfaces ethernet eth0 description 'WAN'
@@ -20,47 +18,96 @@ set interfaces ethernet eth1 description 'LAN'
 set interfaces ethernet eth2 address '192.168.20.1/24'
 set interfaces ethernet eth2 description 'DMZ'
 
-# Zone-based firewall
+# NAT (LAN to WAN masquerade)
+set nat source rule 100 outbound-interface 'eth0'
+set nat source rule 100 source address '192.168.10.0/24'
+set nat source rule 100 translation address masquerade
+
+# Define Zones
 set zone-policy zone WAN interface eth0
 set zone-policy zone LAN interface eth1
 set zone-policy zone DMZ interface eth2
+
 set zone-policy zone WAN default-action drop
 set zone-policy zone LAN default-action drop
 set zone-policy zone DMZ default-action drop
 
+# ----------- FIREWALL RULESETS ------------
 
-# Firewall Rules (LAN to WAN - basic)
+# LAN to WAN
 set firewall name LAN-to-WAN default-action drop
 set firewall name LAN-to-WAN rule 10 action accept
 set firewall name LAN-to-WAN rule 10 state established enable
-set firewall name LAN-to-WAN rule 10 state related enable  # "if the connection was initiated from the LAN, this rule allows the response back to the LAN"
+set firewall name LAN-to-WAN rule 10 state related enable
 
 set firewall name LAN-to-WAN rule 20 action accept
 set firewall name LAN-to-WAN rule 20 protocol tcp
-set firewall name LAN-to-WAN rule 20 destination port 443  # HTTPS
+set firewall name LAN-to-WAN rule 20 destination port 443
 
 set firewall name LAN-to-WAN rule 30 action accept
 set firewall name LAN-to-WAN rule 30 protocol tcp
-set firewall name LAN-to-WAN rule 30 destination port 80   # HTTP
+set firewall name LAN-to-WAN rule 30 destination port 80
 
 set firewall name LAN-to-WAN rule 40 action accept
-set firewall name LAN-to-WAN rule 40 protocol tcp
-set firewall name LAN-to-WAN rule 40 destination port 389  # LDAP
+set firewall name LAN-to-WAN rule 40 protocol udp
+set firewall name LAN-to-WAN rule 40 destination port 53
 
 set firewall name LAN-to-WAN rule 50 action accept
 set firewall name LAN-to-WAN rule 50 protocol tcp
-set firewall name LAN-to-WAN rule 50 destination port 88   # Kerberos
+set firewall name LAN-to-WAN rule 50 destination port 53
 
 set firewall name LAN-to-WAN rule 60 action accept
-set firewall name LAN-to-WAN rule 60 protocol tcp
-set firewall name LAN-to-WAN rule 60 destination port 445  # SMB
+set firewall name LAN-to-WAN rule 60 protocol udp
+set firewall name LAN-to-WAN rule 60 destination port 123
 
-set firewall name LAN-to-WAN rule 70 action accept
-set firewall name LAN-to-WAN rule 70 protocol udp
-set firewall name LAN-to-WAN rule 70 destination port 123  # NTP
+# (Optional - allow pings from Internet for debug)
+set firewall name LAN-to-WAN rule 80 action accept
+set firewall name LAN-to-WAN rule 80 protocol icmp
 
-# Apply zone-to-zone policy
-set zone-policy zone LAN from WAN firewall name LAN-to-WAN
+# Apply LAN-to-WAN rule
+set zone-policy zone WAN from LAN firewall name LAN-to-WAN
+
+# WAN to LAN
+set firewall name WAN-to-LAN default-action drop
+set firewall name WAN-to-LAN rule 10 action accept
+set firewall name WAN-to-LAN rule 10 state established enable
+set firewall name WAN-to-LAN rule 10 state related enable
+
+# (Optional - allow pings from Internet for debug)
+set firewall name WAN-to-LAN rule 20 action accept
+set firewall name WAN-to-LAN rule 20 protocol icmp
+
+# Apply WAN-to-LAN rule
+set zone-policy zone LAN from WAN firewall name WAN-to-LAN
+
+# LAN to DMZ
+set firewall name LAN-to-DMZ default-action drop
+set firewall name LAN-to-DMZ rule 10 action accept
+set firewall name LAN-to-DMZ rule 10 state established enable
+set firewall name LAN-to-DMZ rule 10 state related enable
+
+set firewall name LAN-to-DMZ rule 20 action accept
+set firewall name LAN-to-DMZ rule 20 protocol tcp
+set firewall name LAN-to-DMZ rule 20 destination port 80
+
+set firewall name LAN-to-DMZ rule 30 action accept
+set firewall name LAN-to-DMZ rule 30 protocol tcp
+set firewall name LAN-to-DMZ rule 30 destination port 443
+
+# Apply LAN-to-DMZ rule
+set zone-policy zone DMZ from LAN firewall name LAN-to-DMZ
+
+# DMZ to LAN (optional, usually strict)
+set firewall name DMZ-to-LAN default-action drop
+set firewall name DMZ-to-LAN rule 10 action accept
+set firewall name DMZ-to-LAN rule 10 state established enable
+set firewall name DMZ-to-LAN rule 10 state related enable
+
+# Apply DMZ-to-LAN rule
+set zone-policy zone LAN from DMZ firewall name DMZ-to-LAN
+
+# IPv6 - disable forwarding
+set system ipv6 disable-forwarding
 
 commit
 save
@@ -68,7 +115,7 @@ save
 
 Here is a summary of why specific ports were configured.
 
-Entra Connect Port Requirements 
+Entra Connect Port Requirements (update needed)
 
 **LAN → WAN** 
 | Protocol | Port | Description                                          | Notes                                 |
