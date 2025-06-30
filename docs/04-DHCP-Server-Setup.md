@@ -66,13 +66,14 @@ ipconfig -renew
 # Ubutu 20.04 Desktop
 
 ```
-sudo dhclient -r ens33 
+sudo dhclient -r
 sudo dhclient ens33 
 ip -brief address 
 ip a 
 ```
  
 
-  ![image](https://github.com/user-attachments/assets/c8ba70db-127a-4c9e-93f5-47991bc42c9d)
+   ![image](https://github.com/user-attachments/assets/e069d8de-8f22-4f2a-a760-a3688740553c)
+
 
 
