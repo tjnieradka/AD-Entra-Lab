@@ -112,6 +112,66 @@ set system ipv6 disable-forwarding
 commit
 save
 ```
+```
+DMZ/WAN configuration
+
+# ----------------------------
+# NAT Configuration
+# ----------------------------
+
+# Masquerade (NAT) for DMZ subnet to access internet via WAN interface (eth0)
+set nat source rule 110 outbound-interface 'eth0'
+set nat source rule 110 source address '192.168.20.0/24'
+set nat source rule 110 translation address masquerade
+
+
+# ----------------------------
+# Firewall Rule: DMZ → WAN
+# ----------------------------
+
+# Default to deny everything
+set firewall name DMZ-to-WAN default-action drop
+
+# Allow all outbound traffic from DMZ subnet to internet (0.0.0.0/0)
+# NOTE: You can restrict this to certain ports later (e.g., HTTP/HTTPS only)
+set firewall name DMZ-to-WAN rule 10 action accept
+set firewall name DMZ-to-WAN rule 10 source address '192.168.20.0/24'
+set firewall name DMZ-to-WAN rule 10 destination address '0.0.0.0/0'
+set firewall name DMZ-to-WAN rule 10 protocol all
+
+
+# ----------------------------
+# Firewall Rule: WAN → DMZ (for return traffic only)
+# ----------------------------
+
+# Default to deny all WAN-initiated traffic
+set firewall name WAN-to-DMZ default-action drop
+
+# Allow only established or related sessions (e.g., responses to DMZ → WAN traffic)
+set firewall name WAN-to-DMZ rule 10 action accept
+set firewall name WAN-to-DMZ rule 10 state established enable
+set firewall name WAN-to-DMZ rule 10 state related enable
+
+
+# ----------------------------
+# Zone-to-Zone Firewall Policy Bindings
+# ----------------------------
+
+# Apply DMZ-to-WAN firewall policy to traffic originating in DMZ targeting WAN
+set zone-policy zone WAN from DMZ firewall name DMZ-to-WAN
+
+# Apply WAN-to-DMZ policy for return traffic
+set zone-policy zone DMZ from WAN firewall name WAN-to-DMZ
+
+
+# ----------------------------
+# Commit and Save Configuration
+# ----------------------------
+
+commit
+save
+----
+```
 
 Here is a summary of why specific ports were configured.
 
