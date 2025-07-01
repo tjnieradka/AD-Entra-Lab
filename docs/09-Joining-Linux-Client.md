@@ -3,14 +3,14 @@
 
 ## Configure Network Settings 
 
-1. Edit /etc/hostanme and enter vancl2-ubuntu
+1. Edit /etc/hostname and enter vancl2-ubuntu
 2. Edit /etc/hosts and enter vancl2-ubutu
    ```
    127.0.0.1	localhost
    127.0.1.1	vancl2-ubuntu
    ```
 3. Reboot 
-4. Edit 01-network-manager-all.yaml.
+4. Edit 01-network-manager-all.yaml (after creating a backup copy) in /etc/netplan/
    I am using netword renderer because it seems to work better than the default NetworkManager (which resulted in some issues in my lab). 
 
 ```   
