@@ -1,4 +1,4 @@
-# VyOS 1.3 (Equuleus) — Lab Router and Firewall
+# 🔐  VyOS 1.3 (Equuleus) — Lab Router and Firewall
 
 VyOS 1.3 is an open-source, Debian-based network operating system used for routing, firewalling, NAT, DHCP, and VPN services. In this lab, VyOS 1.3 virtual machine acts as the edge router and zone-based firewall, separating the LAN, DMZ, and NAT interfaces. It simulates enterprise-class network segmentation and enforces access rules between on-premises and cloud-connected components (e.g., Entra Connect → Entra ID).
 
@@ -6,9 +6,9 @@ Official documentation (rolling & 1.3):
 🔗 https://docs.vyos.io/en/equuleus/
 
 
-# VyOS 1.3 Configuration used in the lab
+# VyOS 1.3 Configuration
 
-The following are commands used to configure the VyOS router and firewall. The main obhjective is to allow connectivity between the on-premise Active Directory and Entra.
+The following are commands used to configure the VyOS router and firewall for the lab. The main objective is to allow connectivity between the on-premise Active Directory and Entra.
 ```
 # Interfaces
 set interfaces ethernet eth0 address dhcp
@@ -170,6 +170,6 @@ Entra Connect Port Requirements (update needed)
 
 None normally required -All sync is outbound only from LAN 
 
-# VyOS 1.3 Virtual machine screenshot
+# VyOS 1.3 Virtual machine
 
 ![image](https://github.com/user-attachments/assets/bbc282bd-7b3a-4c93-a91b-b22037cb6a5e)
