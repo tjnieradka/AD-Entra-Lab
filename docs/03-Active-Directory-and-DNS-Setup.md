@@ -79,13 +79,13 @@
 
 11.  Verify configuration after reboot.
 
-     [image](https://github.com/user-attachments/assets/ff75132f-07a9-4217-a007-16e1432bf073)
+     ![image](https://github.com/user-attachments/assets/16bc697c-f9bd-4d21-aebf-7545c4386db8)
 
-12. In Tools > DNS, verify settings in DNS Manager.
+13. In Tools > DNS, verify settings in DNS Manager.
 
      ![image](https://github.com/user-attachments/assets/5c7c3928-73af-409e-a68b-4143801c72c6)
 
-13. In Tools > Active Directory Users and Computers, various administration tasks (e.g., user account setup) can be done.
+14. In Tools > Active Directory Users and Computers, various administration tasks (e.g., user account setup) can be done.
 
     ![image](https://github.com/user-attachments/assets/043f9e04-7b69-4870-b4f8-4b4eecf7c980)
 
