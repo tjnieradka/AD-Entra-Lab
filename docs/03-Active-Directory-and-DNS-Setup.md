@@ -1,6 +1,6 @@
-# Active Directory and DNS Server Setup -- Detailed Steps
+# 03 Active Directory and DNS Setup
 
-## Preparation 
+## 1. Initial Configuration and Active Directory Installation
 
 1. In Server Manager > Local Server > Properties, click on the Computer Name, and change to VANDC1-W2022. Reboot.
 2. In Settings > Network & Ethernet > Advanced Network Settings > Change Adapter Options > Ethernet0 Properties.
@@ -27,65 +27,65 @@
 
 9. On the Confirmation screen, click Install.  AD DS, DNS, and DHCP would be installed.
 
-## Installation and Configuration of Active Directory and DNS
+## 2. Configuration of Active Directory and DNS
 
-11. Click on the yellow triangle with an exclamation mark. 
+1. Click on the yellow triangle with an exclamation mark. 
 
     ![image](https://github.com/user-attachments/assets/9e21c560-3986-49dd-8caa-6532dc41cae5)
 
-12. Active Directory will be configured at thios stage (DHCP and DNS will be cobnfigured later). Select Priomote this server to a domain controller
+2. Active Directory will be configured at this stage (DHCP and DNS will be cobnfigured later). Select Priomote this server to a domain controller
 
-13. Select Add a new forest.  The tntechdemo01.com domain is what I reserved.  Click Next.
+3. Select Add a new forest.  The tntechdemo01.com domain is what I reserved.  Click Next.
 
     ![image](https://github.com/user-attachments/assets/2204b6f5-6d76-415b-b116-ab85297f6a07)
 
-14. This lab will have only has one domain controller, and the highest available functional level in thiz wizard is Windows 2016 (if there were domain controllers at earlier versions of Windows, the function level would be selected to match these earlier domain controllers). DSRM password was entered in case a restore is needded from backup.
+4. This lab will have only has one domain controller, and the highest available functional level in thiz wizard is Windows 2016 (if there were domain controllers at earlier versions of Windows, the function level would be selected to match these earlier domain controllers). DSRM password was entered in case a restore is needded from backup.
 
      ![image](https://github.com/user-attachments/assets/89b03d4c-7fed-4088-973a-c79eccb221b0)
 
-15. Click Next on DNS Options.  The warning "A delegation for this DNS server cannot be created because the authoritative parent zone cannot be found" is normal.  The DNS Server needs to be configured afterwards.
+5. Click Next on DNS Options.  The warning "A delegation for this DNS server cannot be created because the authoritative parent zone cannot be found" is normal.  The DNS Server needs to be configured afterwards.
     
-17. For Additional Options, enter or confirm NetBIOS name TNTECHDEMO01.  This is a legacy domain name for older devices, if they need to interact with the domain.
+6. For Additional Options, enter or confirm NetBIOS name TNTECHDEMO01.  This is a legacy domain name for older devices, if they need to interact with the domain.
 
-18. For Paths, defaults were left as is.
+7. For Paths, defaults were left as is.
 
     ![image](https://github.com/user-attachments/assets/d26514c6-9db9-4ca3-abad-17c1ed9e61ac)
 
-19. Review Options and confirm.  The following script based on the selected setting is available if you click View Script button.
+8. Review Options and confirm.  The following script based on the selected setting is available if you click View Script button.
 
-# Windows PowerShell script for AD DS Deployment
-```
-Import-Module ADDSDeployment
-Install-ADDSForest `
--CreateDnsDelegation:$false `
--DatabasePath "C:\Windows\NTDS" `
--DomainMode "WinThreshold" `
--DomainName "tntechdemo01.com" `
--DomainNetbiosName "TNTECHDEMO01" `
--ForestMode "WinThreshold" `
--InstallDns:$true `
--LogPath "C:\Windows\NTDS" `
--NoRebootOnCompletion:$false `
--SysvolPath "C:\Windows\SYSVOL" `
--Force:$true
-```
-Click Next.
+   # Windows PowerShell script for AD DS Deployment
+   ```
+   Import-Module ADDSDeployment
+   Install-ADDSForest `
+   -CreateDnsDelegation:$false `
+   -DatabasePath "C:\Windows\NTDS" `
+   -DomainMode "WinThreshold" `
+   -DomainName "tntechdemo01.com" `
+   -DomainNetbiosName "TNTECHDEMO01" `
+   -ForestMode "WinThreshold" `
+   -InstallDns:$true `
+   -LogPath "C:\Windows\NTDS" `
+   -NoRebootOnCompletion:$false `
+   -SysvolPath "C:\Windows\SYSVOL" `
+   -Force:$true
+   ```
 
-20. Note warnings and install.
+
+9. Note warnings and install.
 
      ![image](https://github.com/user-attachments/assets/3deaa2b1-5dcb-44d7-bbbf-587807c0d934)
 
-21.  The installation will proceed and the server will reboot.
+10.  The installation will proceed and the server will reboot.
 
-22.  Verify configuration after reboot.
+11.  Verify configuration after reboot.
 
      [image](https://github.com/user-attachments/assets/ff75132f-07a9-4217-a007-16e1432bf073)
 
-23. In Tools > DNS, verify settings in DNS Manager.
+12. In Tools > DNS, verify settings in DNS Manager.
 
      ![image](https://github.com/user-attachments/assets/5c7c3928-73af-409e-a68b-4143801c72c6)
 
-24. In Tools > Active Directory Users and Computers, various administration tasks (e.g., user account setup) can be done.
+13. In Tools > Active Directory Users and Computers, various administration tasks (e.g., user account setup) can be done.
 
     ![image](https://github.com/user-attachments/assets/043f9e04-7b69-4870-b4f8-4b4eecf7c980)
 
