@@ -1,6 +1,14 @@
 # 10. Test Linux Web Server in DMZ
 
-## 1. Network Configuration
+## 1. Configure Network Settings
+```
+lsb_release -a
+No LSB modules are available.
+Distributor ID:	Ubuntu
+Description:	Ubuntu 20.04.6 LTS
+Release:	20.04
+Codename:	focal
+```
 
 1. Update hostname to vansrv-ubuntu
 
@@ -15,20 +23,20 @@
    netplan generate
    netplan apply
    ```
-  
-6. Update and upgrade
+## 2. Install and Configure Simple Web Server  
+1. Update and upgrade
 
    ```
    sudo apt update
    sudo apt upgrade -y
    ```
 
-7. Install Web server
+2. Install Web server
 
    ```
    sudo apt install apache2 -y
    ```
-8. Start Web server
+3. Start Web server
 
    ```
    sudo systemctl enable apache2
@@ -38,7 +46,7 @@
 
    ![image](https://github.com/user-attachments/assets/9cd8b9d6-99ef-484b-8df8-90d4f470463e)
 
-9. Update local firewall
+4. Update local firewall
 
     ```
     sudo ufw enable
@@ -47,17 +55,17 @@
     ```
     ![image](https://github.com/user-attachments/assets/087fd941-1504-4b54-a0c7-1fed6cc5e8f2)
    
-11. Test Web server from VANCL2-UBUNTU or VANCL1-W11 client (in the LAN).
+5. Test Web server from VANCL2-UBUNTU or VANCL1-W11 client (in the LAN).
 
     ![image](https://github.com/user-attachments/assets/7bfa666d-634f-4ba5-9693-2b0302cd3cb9)
     
-12. Update index.html on the Web server.
+6. Update index.html on the Web server.
 
     ```
     echo "<h1>Welcome to AD-Entra Lab Test Page</h1><p>This is a test web page.</p>" | sudo tee /var/www/html/index.html
     ```
 
-13. Test Web server from VANCL2-UBUNTU or VANCL1-W11 client (in the LAN).
+7. Test Web server from VANCL2-UBUNTU or VANCL1-W11 client (in the LAN).
 
      Ubuntu client
     
