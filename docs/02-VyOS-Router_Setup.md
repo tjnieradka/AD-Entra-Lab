@@ -23,6 +23,11 @@ set nat source rule 100 outbound-interface 'eth0'
 set nat source rule 100 source address '192.168.10.0/24'
 set nat source rule 100 translation address masquerade
 
+# NAT (DMZ to WAN masquerade)
+set nat source rule 110 outbound-interface 'eth0'
+set nat source rule 110 source address '192.168.20.0/24'
+set nat source rule 110 translation address masquerade
+
 # Define Zones
 set zone-policy zone WAN interface eth0
 set zone-policy zone LAN interface eth1
@@ -67,6 +72,8 @@ set firewall name LAN-to-WAN rule 80 protocol icmp
 # Apply LAN-to-WAN rule
 set zone-policy zone WAN from LAN firewall name LAN-to-WAN
 
+#---------------------------------------------------------
+
 # WAN to LAN
 set firewall name WAN-to-LAN default-action drop
 set firewall name WAN-to-LAN rule 10 action accept
@@ -79,6 +86,8 @@ set firewall name WAN-to-LAN rule 20 protocol icmp
 
 # Apply WAN-to-LAN rule
 set zone-policy zone LAN from WAN firewall name WAN-to-LAN
+
+#---------------------------------------------------------
 
 # LAN to DMZ
 set firewall name LAN-to-DMZ default-action drop
@@ -97,6 +106,8 @@ set firewall name LAN-to-DMZ rule 30 destination port 443
 # Apply LAN-to-DMZ rule
 set zone-policy zone DMZ from LAN firewall name LAN-to-DMZ
 
+#---------------------------------------------------------
+
 # DMZ to LAN (optional, usually strict)
 set firewall name DMZ-to-LAN default-action drop
 set firewall name DMZ-to-LAN rule 10 action accept
@@ -106,29 +117,9 @@ set firewall name DMZ-to-LAN rule 10 state related enable
 # Apply DMZ-to-LAN rule
 set zone-policy zone LAN from DMZ firewall name DMZ-to-LAN
 
-# IPv6 - disable forwarding
-set system ipv6 disable-forwarding
+#---------------------------------------------------------
 
-commit
-save
-```
-```
-DMZ/WAN configuration
-
-# ----------------------------
-# NAT Configuration
-# ----------------------------
-
-# Masquerade (NAT) for DMZ subnet to access internet via WAN interface (eth0)
-set nat source rule 110 outbound-interface 'eth0'
-set nat source rule 110 source address '192.168.20.0/24'
-set nat source rule 110 translation address masquerade
-
-
-# ----------------------------
-# Firewall Rule: DMZ → WAN
-# ----------------------------
-
+# DMZ to WAN
 # Default to deny everything
 set firewall name DMZ-to-WAN default-action drop
 
@@ -139,11 +130,6 @@ set firewall name DMZ-to-WAN rule 10 source address '192.168.20.0/24'
 set firewall name DMZ-to-WAN rule 10 destination address '0.0.0.0/0'
 set firewall name DMZ-to-WAN rule 10 protocol all
 
-
-# ----------------------------
-# Firewall Rule: WAN → DMZ (for return traffic only)
-# ----------------------------
-
 # Default to deny all WAN-initiated traffic
 set firewall name WAN-to-DMZ default-action drop
 
@@ -152,25 +138,18 @@ set firewall name WAN-to-DMZ rule 10 action accept
 set firewall name WAN-to-DMZ rule 10 state established enable
 set firewall name WAN-to-DMZ rule 10 state related enable
 
-
-# ----------------------------
-# Zone-to-Zone Firewall Policy Bindings
-# ----------------------------
-
 # Apply DMZ-to-WAN firewall policy to traffic originating in DMZ targeting WAN
 set zone-policy zone WAN from DMZ firewall name DMZ-to-WAN
 
 # Apply WAN-to-DMZ policy for return traffic
 set zone-policy zone DMZ from WAN firewall name WAN-to-DMZ
 
-
-# ----------------------------
-# Commit and Save Configuration
-# ----------------------------
+#---------------------------------------------------------
+# IPv6 - disable forwarding
+set system ipv6 disable-forwarding
 
 commit
 save
-----
 ```
 
 Here is a summary of why specific ports were configured.
