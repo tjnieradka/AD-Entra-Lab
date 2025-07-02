@@ -1,4 +1,4 @@
-# DHCP Server Setup -- Detailed Steps
+# 04. DHCP Server Setup
 
 1. Select Complete DHCP configuration
 
@@ -52,7 +52,9 @@
 
 18. Test on clients. Note that the IP address used are based on the configured scope.
 
-# Windows 11. 
+# DHCP Clients
+
+## Windows 11 
 
 ```
 ipconfig -release
@@ -63,7 +65,7 @@ ipconfig -renew
 
 
 
-# Ubutu 20.04 Desktop
+## Ubutu 20.04 Desktop
 
 ```
 sudo dhclient -r
