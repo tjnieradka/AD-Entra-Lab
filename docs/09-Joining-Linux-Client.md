@@ -3,7 +3,7 @@
 
 ## 1. Configure Network Settings 
 
-The version of the Linux is the following:
+Linux distribution:
    ```
    lsb_release -a
    No LSB modules are available.
