@@ -1,4 +1,6 @@
-# 🔐  VyOS 1.3 (Equuleus) — Lab Router and Firewall
+# 02.VyOS Router Setup
+
+## 1. Introduction
 
 VyOS 1.3 is an open-source, Debian-based network operating system used for routing, firewalling, NAT, DHCP, and VPN services. In this lab, VyOS 1.3 virtual machine acts as the edge router and zone-based firewall, separating the LAN, DMZ, and NAT interfaces. It simulates enterprise-class network segmentation and enforces access rules between on-premises and cloud-connected components (e.g., Entra Connect → Entra ID).
 
@@ -6,9 +8,9 @@ Official documentation (rolling & 1.3):
 🔗 https://docs.vyos.io/en/equuleus/
 
 
-# VyOS 1.3 Configuration
+## 2. VyOS 1.3 Configuration
 
-The following are commands used to configure the VyOS router and firewall for the lab. The main objective is to allow connectivity between the on-premise Active Directory and Entra.
+The following are commands used to configure the VyOS router and firewall for the lab. The main objective is to allow connectivity between the on-premise Active Directory and Entra.  
 ```
 # Interfaces
 set interfaces ethernet eth0 address dhcp
@@ -151,6 +153,7 @@ set system ipv6 disable-forwarding
 commit
 save
 ```
+## 3. Ports
 
 Here is a summary of why specific ports were configured.
 
@@ -166,10 +169,21 @@ Entra Connect Port Requirements (update needed)
 | TCP      | 445  | SMB (Group Policy, logon scripts)                   | LAN only – avoid exposing externally  |
 | UDP      | 123  | NTP (Time sync with Internet or internal NTP)       | Needed if no internal NTP             |
 
+icmp port opened for diagnostics in the lab.
+
 **WAN → LAN** 
 
 None normally required -All sync is outbound only from LAN 
 
-# VyOS 1.3 Virtual machine
+**DMZ → LAN** 
 
-![image](https://github.com/user-attachments/assets/bbc282bd-7b3a-4c93-a91b-b22037cb6a5e)
+_Work in progress_
+
+ Protocol | Port | Description                                          | Notes                                 |
+|----------|------|------------------------------------------------------|---------------------------------------|
+| TCP      | 443  | HTTPS                      | Test Web traffic from Web server in the DMZ |
+| TCP      | 80   | HTTP                       | Test Web traffic from Web server in the DMZ |
+
+**DMZ → WAN** 
+
+_Work in progress_
