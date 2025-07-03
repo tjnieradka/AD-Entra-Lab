@@ -1,3 +1,5 @@
+⚠️ This lab is for demonstration only; not for production.
+
 # 08. Joining Windows Client to Active Directory
 
 ## 1. Configure Network Settings
