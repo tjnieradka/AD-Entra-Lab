@@ -1,3 +1,5 @@
+⚠️ This lab is for demonstration only; not for production.
+
 # 03 Active Directory and DNS Setup
 
 ## 1. Initial Configuration and Active Directory Installation
