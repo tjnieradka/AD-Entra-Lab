@@ -10,20 +10,21 @@ Release:	20.04
 Codename:	focal
 ```
 
-1. Update hostname to vansrv-ubuntu
+1. Update hostname in **/etc/hostname** to vansrv-ubuntu
 
-2. Update hosts file. Reboot
+2. Update **/etc/hosts** file. Reboot
   
-3. Update network configuration in /etc/netplan/00-installer-config.yaml 
+3. Update network configuration in **/etc/netplan/00-installer-config.yaml** 
 
   ![image](https://github.com/user-attachments/assets/d00ccf30-4915-4a5c-a2e5-12f546944670)
 
-5. Run
+5. Run the following.
    ```
    netplan generate
    netplan apply
    ```
 ## 2. Install and Configure Simple Web Server  
+
 1. Update and upgrade
 
    ```
@@ -31,12 +32,12 @@ Codename:	focal
    sudo apt upgrade -y
    ```
 
-2. Install Web server
+2. Install the Web server.
 
    ```
    sudo apt install apache2 -y
    ```
-3. Start Web server
+3. Start the Web server.
 
    ```
    sudo systemctl enable apache2
@@ -46,7 +47,7 @@ Codename:	focal
 
    ![image](https://github.com/user-attachments/assets/9cd8b9d6-99ef-484b-8df8-90d4f470463e)
 
-4. Update local firewall
+4. Update local firewall.
 
     ```
     sudo ufw enable
