@@ -1,3 +1,5 @@
+⚠️ This lab is for demonstration only; not for production.
+
 # 04. DHCP Server Setup
 
 1. Select **Complete DHCP configuration**.  
