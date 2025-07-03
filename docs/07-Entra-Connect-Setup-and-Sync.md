@@ -1,3 +1,5 @@
+⚠️ This lab is for demonstration only; not for production.
+
 # 07. Entra Connect Setup and Sync
 
 ## 1. Entra Connect Configuration
