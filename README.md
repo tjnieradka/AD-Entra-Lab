@@ -68,7 +68,7 @@ This lab setup was inspired by:
 
 ---
 
-## 📘 License
+##  License
 
 This repository is released under **Creative Commons CC BY-NC-ND 4.0**.
 
@@ -77,7 +77,7 @@ This repository is released under **Creative Commons CC BY-NC-ND 4.0**.
 
 ---
 
-## 📫 Contact
+## Contact
 
 Created and maintained by **Thomas Nieradka**
 
