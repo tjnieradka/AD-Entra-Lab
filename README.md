@@ -2,7 +2,7 @@
 
 A hands-on lab designed to demonstrate **hybrid identity integration** between **on-premises Active Directory (AD DS)** and **Microsoft Entra ID**, including Entra Connect, basic routing with VyOS, and various identity features.
 
-This lab is for **demo and educational purposes** only.
+This lab is for **demo and educational purposes** only -- **not meant for production**.
 
 ---
 
@@ -18,17 +18,22 @@ This repository contains step-by-step instructions to:
 
 ---
 
-## 🗂️ Repository Structure
+## Repository Structure  
 
-AD-Entra-Lab/
-├─ docs/ # Lab walkthroughs
-│ ├─ 01-Setup-VyOS.md
-│ ├─ 02-Configure-AD-DC.md
-│ ├─ 03-Install-Entra-Connect.md
-│ ├─ 04-Configure-Entra-ID.md
-│ ├─ 05-Test-Users-Setup-in-AD.md
-│ └─ ... more steps coming
-
+AD-Entra-Lab/  
+├─ docs/ # Lab walkthroughs  
+│ ├─ 01-Environment-Overview.md # Network topology  
+│ ├─ 02-VyOS-Router_Setup.md # Work in progress  
+│ ├─ 03-Active-Directory-and-DNS-Setup.md  
+│ ├─ 04-DHCP-Server-Setup.md  
+│ ├─ 05-Test-Users-Setup-in-Active-Directory.md  # Work in progress  
+│ ├─ 06-Entra-ID-Setup.md  
+│ ├─ 07-Entra-Connect-Setup-and-Sync.md  
+│ ├─ 08-Joining-Windows-Client.md  
+│ ├─ 09-Joining-Linux-Client.md  
+│ ├─ 10-Test-Linux-Web-Server-in-DMZ-Setup.md  
+│ ├─ 11-Testing Scenarios-TBA.md # Work in progress  
+│ └─ ... more steps coming  
 
 ---
 
