@@ -1,3 +1,5 @@
+⚠️ This lab is for demonstration only; not for production.
+
 # 02.VyOS Router Setup
 
 ## 1. Introduction
