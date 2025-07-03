@@ -1,3 +1,4 @@
+⚠️ This lab is for demonstration only; not for production.
 
 # 09. Joining Linux Client to Active Directory
 
