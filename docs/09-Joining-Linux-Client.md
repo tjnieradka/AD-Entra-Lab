@@ -13,15 +13,17 @@ Linux distribution:
    Codename:	focal
    ```
 
-1. Edit /etc/hostname and enter vancl2-ubuntu
-2. Edit /etc/hosts and enter vancl2-ubutu
+1. Edit **/etc/hostname** and enter vancl2-ubuntu
+   
+3. Edit **/etc/hosts** and enter vancl2-ubutu
    ```
    127.0.0.1	localhost
    127.0.1.1	vancl2-ubuntu
    ```
-3. Reboot 
-4. Edit 01-network-manager-all.yaml (after creating a backup copy) in /etc/netplan/
-   I am using netword renderer because it seems to work better than the default NetworkManager (which resulted in some issues in my lab). 
+4. Reboot
+   
+5. Edit **01-network-manager-all.yaml** (after creating a backup copy) in **/etc/netplan/**
+   I am using **netword** renderer because it seems to work better than the default **NetworkManager** (which resulted in some issues in my lab). 
 
 ```   
 network:
@@ -48,7 +50,7 @@ sudo netplan apply
 
 ## 2. Update and Install Packages to Join Active Directory
 
-1. Update
+1. Update.
 ```
 sudo apt update
 sudo apt upgrade
@@ -62,13 +64,13 @@ sudo apt install realmd sssd sssd-tools adcli samba-common-bin oddjob oddjob-mkh
 
 ## 3. Join Active Directory Domain
 
-1. Run
+1. Run.
    
 ```
 realm discover tntechdemo01.com
 ```
 
-2. Join the AD domain
+2. Join the AD domain.
    
 ```
 sudo realm join --user=administrator tntechdemo01.com
