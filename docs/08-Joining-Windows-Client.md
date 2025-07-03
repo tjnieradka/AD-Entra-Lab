@@ -13,12 +13,12 @@
 
 ## 2. Join the Domain
 
-1. Open Settings > System > About and click "Domain or Workgroup" in Related Links.
+1. Open **Settings > System > About** and click **Domain or Workgroup** in **Related Links**.
 
    ![image](https://github.com/user-attachments/assets/0f641a22-3cc1-428b-9ad8-28b9bd6ed13e)
 
-2. In System Properties > Computer Name, click on Change.
-3. In Computer Name/Domain Changes, select Domain in Member Of section.
+2. In **System Properties > Computer Name**, click on **Change**.
+3. In **Computer Name/Domain Changes**, select **Domain** in **Member Of** section.
 4. Enter tntechdemo01.com
 5. Enter administrator to join the domain.
 
