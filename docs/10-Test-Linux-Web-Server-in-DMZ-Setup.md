@@ -1,3 +1,5 @@
+⚠️ This lab is for demonstration only; not for production.
+
 # 10. Test Linux Web Server in DMZ
 
 ## 1. Configure Network Settings
