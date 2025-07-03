@@ -1,3 +1,5 @@
+⚠️ This lab is for demonstration only; not for production.
+
 # 01. Environment Overview
 
 This virtual lab simulates a hybrid on-premises network integrated with **Microsoft Entra ID** (formerly Azure Active Directory). It provides a hands-on environment to explore Active Directory domain services, Entra Connect synchronization, firewall policies, and DMZ architecture using **VyOS 1.3** as a virtual router/firewall.
