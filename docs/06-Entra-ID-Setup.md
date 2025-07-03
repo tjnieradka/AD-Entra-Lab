@@ -1,3 +1,5 @@
+⚠️ This lab is for demonstration only; not for production.
+
 # 06. Entra ID Setup
 
 ## 1. Register Domain
