@@ -56,28 +56,28 @@
 
 9. Enter username for **Connect to Microsoft Entra ID**.
 
-10. Enter the **Forest**, and get the system to create a new AD account with required permissions for periodic sychronization.
+10. Enter the **Forest**, and get the system to create a new AD account with required permissions for periodic sychronization.  
 
-   ![image](https://github.com/user-attachments/assets/c607a3e9-5e6f-45c7-a67e-96d159a114f6)
+    ![image](https://github.com/user-attachments/assets/c607a3e9-5e6f-45c7-a67e-96d159a114f6)
 
-   ![image](https://github.com/user-attachments/assets/4e052734-a310-490a-8342-d1dff7206723)
+    ![image](https://github.com/user-attachments/assets/4e052734-a310-490a-8342-d1dff7206723)
 
-   ![image](https://github.com/user-attachments/assets/51483c64-16ea-464c-9fbb-f7b11e5f4abb)
+    ![image](https://github.com/user-attachments/assets/51483c64-16ea-464c-9fbb-f7b11e5f4abb)
 
-11. Confirm the default **userPrincipalName** setting and click **Next**.
+11. Confirm the default **userPrincipalName** setting and click **Next**.  
 
     ![image](https://github.com/user-attachments/assets/81790218-0e50-4120-879b-5c1875896281)
 
-12. Specify **Domain and OU Filtering**.
+12. Specify **Domain and OU Filtering**.  
     For now, I selected the Entra Sync OU in the on-premise AD.
     
     ![image](https://github.com/user-attachments/assets/45d8112e-6e8c-4795-9b13-b7c9aec7345a)
 
-14. Accept default settings for identifying users.
+14. Accept default settings for identifying users.  
 
     ![image](https://github.com/user-attachments/assets/2495b7d2-b33c-4b69-a773-7f8e4f12ca65)
 
-15. Accept the default setting for synchronizing all users.
+15. Accept the default setting for synchronizing all users.  
 
     ![image](https://github.com/user-attachments/assets/05292185-7cdb-4e34-99e6-be4631b204a4)
 
@@ -87,19 +87,20 @@
 
     ![image](https://github.com/user-attachments/assets/cb2c7e6a-d19d-406e-8b7f-bc50bfe91f17)
 
-17. Specify **Group writeback** destination in on-premise AD. This step is a simulation if the lab AD had an Exchange scheme.
+17. Specify **Group writeback** destination in on-premise AD. This step is a simulation if the lab AD had an Exchange scheme.  
 
      ![image](https://github.com/user-attachments/assets/1c841f5d-e2b4-469b-a7aa-a062ba358cf4)
 
-18. Enable Single Sign-on.
+18. Enable Single Sign-on.  
 
      ![image](https://github.com/user-attachments/assets/9add61b3-5ea7-4679-9b5a-0ae12cf62931)
 
-19. Confirm and click **Install**.
+19. Confirm and click **Install**.  
 
      ![image](https://github.com/user-attachments/assets/07599690-0108-42e7-977d-7c989c5022b0)
 
-20. The **Configuration complete** will indicate completion.
+20. The **Configuration complete** will indicate completion.  
+    **NOTE:** The Active Directory Recycle Bin was enabled after Entra Connect configuration.
 
     ![image](https://github.com/user-attachments/assets/f6241b7e-e55f-46b1-bcea-54e6daa1e62f)
 
@@ -114,6 +115,33 @@
 
     ![image](https://github.com/user-attachments/assets/ab179ce0-4b0f-43b6-b155-481e6991ac93)
 
-3. Sync status
+2. Sync status
 
      ![image](https://github.com/user-attachments/assets/8ac94978-15db-42e8-9c26-6ef2ce2d51db)
+
+3. Check accounts that were synchronized from on-premise AD to Entra.  
+   **Test Users**  
+
+     ![image](https://github.com/user-attachments/assets/0c7afb94-96da-4ed5-86ce-ea493fd724fd)
+
+     ![image](https://github.com/user-attachments/assets/74d909ac-6367-44e9-b35a-1388080f271b)
+
+   **Test Groups**  
+     ![image](https://github.com/user-attachments/assets/e333d0ee-5606-4e05-b3fa-45119309cc35)
+
+     ![image](https://github.com/user-attachments/assets/348b293e-48de-44e7-a685-3c0733c11c97)
+
+
+**NOTES**  
+Manual synchronization can be initiated as shown below.
+
+```
+# Start a delta (incremental) sync:
+Start-ADSyncSyncCycle -PolicyType Delta
+
+#Start a full (initial) sync:
+Start-ADSyncSyncCycle -PolicyType Initial
+
+#Check sync scheduler status:
+Get-ADSyncScheduler
+```
