@@ -21,7 +21,7 @@ This repository contains step-by-step instructions to:
 ## Repository Structure  
 
 AD-Entra-Lab/  
-├─ docs/ # Lab walkthroughs  
+├─ [docs](https://github.com/tjnieradka/AD-Entra-Lab/tree/main/docs)/ # Lab walkthroughs  
 │ ├─ 01-Environment-Overview.md # Network topology  
 │ ├─ 02-VyOS-Router_Setup.md # Work in progress  
 │ ├─ 03-Active-Directory-and-DNS-Setup.md  
