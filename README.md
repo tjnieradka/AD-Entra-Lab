@@ -23,10 +23,10 @@ This repository contains step-by-step instructions to:
 AD-Entra-Lab/  
 ├─ [docs](https://github.com/tjnieradka/AD-Entra-Lab/tree/main/docs)/ # Lab walkthroughs  
 │ ├─ 01-Environment-Overview.md # Network topology  
-│ ├─ 02-VyOS-Router_Setup.md # Work in progress  
+│ ├─ 02-VyOS-Router_Setup.md  
 │ ├─ 03-Active-Directory-and-DNS-Setup.md  
 │ ├─ 04-DHCP-Server-Setup.md  
-│ ├─ 05-Test-Users-Setup-in-Active-Directory.md  # Work in progress  
+│ ├─ 05-Test-Users-Setup-in-Active-Directory.md   
 │ ├─ 06-Entra-ID-Setup.md  
 │ ├─ 07-Entra-Connect-Setup-and-Sync.md  
 │ ├─ 08-Joining-Windows-Client.md  
