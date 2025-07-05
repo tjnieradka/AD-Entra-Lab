@@ -51,7 +51,7 @@
 **1.1.1.1** – A public DNS server provided by Cloudflare.  
 **8.8.8.8** – A public DNS server operated by Google.   
 
-15. Click continue at the WINS settings screen.
+15. Click to continue at the WINS settings screen.
 
 16. Activate the DHCP scope.
 
@@ -59,7 +59,7 @@
 
      ![image](https://github.com/user-attachments/assets/147cfd1e-020d-4ec1-8bf5-3d81fe17fc81)
 
-18. Test on clients. Note that the IP address are based on the configured scope.
+18. Test on clients. Note that the IP address is based on the configured scope.
 
 # DHCP Clients
 
@@ -76,7 +76,7 @@ ipconfig -renew
 
 
 
-## Ubutu 20.04 Desktop
+## Ubuntu 20.04 Desktop
 
 The IP address obtained is from the DHCP server as shown by the results on the ens33 interface.  
 
