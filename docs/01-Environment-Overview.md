@@ -7,14 +7,14 @@ This virtual lab simulates a hybrid on-premises network integrated with **Micros
 ## 1. Architecture Highlights
 
 - **VyOS Router (1.3 Equuleus)** provides routing, zone-based firewalling, and NAT.
-  - **WAN (VMnet8)**: NAT interface for outbound internet/Entra connectivity
-  - **LAN (VMnet2)**: Internal subnet for domain services and clients
-  - **DMZ (VMnet3)**: Segregated network for web-accessible services
-- **Active Directory Domain Controller (Windows Server 2022)** with DNS/DHCP roles
-- **Entra Connect Server (Windows Server 2022)** to sync on-prem AD to Microsoft Entra ID
-- **Windows 11 and Ubuntu clients** connected to the LAN subnet via DHCP
-- **Ubuntu Web Server** hosted in the DMZ to simulate a public-facing server
-- **Microsoft Entra ID (Cloud)** accessed over HTTPS for directory sync and auth
+  - **WAN (VMnet8)**: NAT interface for outbound internet/Entra connectivity.
+  - **LAN (VMnet2)**: Internal subnet for domain services and clients.
+  - **DMZ (VMnet3)**: Segregated network for web-accessible services.
+- **Active Directory Domain Controller (Windows Server 2022)** with DNS/DHCP roles.
+- **Entra Connect Server (Windows Server 2022)** to sync on-prem AD to Microsoft Entra ID.
+- **Windows 11 and Ubuntu clients** connected to the LAN subnet via DHCP.
+- **Ubuntu Web Server** hosted in the DMZ to simulate a public-facing server.
+- **Microsoft Entra ID (Cloud)** accessed over HTTPS for directory sync and authentication.
 
 ## 2. Subnet Configuration
 
@@ -39,15 +39,15 @@ Machines start with 'VAN' to indicate they are located in Vancouver.
 
 ## 4. Microsoft Entra ID
 
-- Cloud Directory: `EntraTenantName.onmicrosoft.com`
-- Accessible from VyOS WAN interface via NAT
-- Required for synchronization and token-based authentication
+- Cloud Directory: `tntechdemo01.onmicrosoft.com.`
+- Accessible from VyOS WAN interface via NAT.
+- Required for synchronization and token-based authentication.
 
 ## 5. Firewall and Security
 
-- VyOS uses **zone-based firewall (ZBF)** rules to restrict traffic between zones
-- Inbound/Outbound rules are defined per zone-pair
-- Only required ports for Entra Connect and AD traffic are allowed
+- VyOS uses **zone-based firewall (ZBF)** rules to restrict traffic between zones.
+- Inbound/Outbound rules are defined per zone-pair.
+- Only required ports for Entra Connect and AD traffic are allowed.
 
 ## 6. Network Topology
 
@@ -57,11 +57,11 @@ Machines start with 'VAN' to indicate they are located in Vancouver.
 
 ## 6. VMware Setup
 
-- This is how the above environment appears on VMware Workstation 17 Pro
+- This is how the above environment appears on VMware Workstation 17 Pro.
 
 ![image](https://github.com/user-attachments/assets/5c19f0e6-ea32-42ad-8317-a2993e7e09ba)
 
-- VMWare Virtual Network Editor Configuration
+- VMWare Virtual Network Editor Configuration.
 - Only VMnet2, VMnet3, VMnet8 are used in the lab.
 
 ![image](https://github.com/user-attachments/assets/5585d948-adbf-4448-953c-ccdd4b7fb478)
