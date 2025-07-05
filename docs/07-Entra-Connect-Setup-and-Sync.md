@@ -4,11 +4,11 @@
 
 ## 1. Entra Connect Configuration
 
-1. Here is what Entra Connect looks like before it is connected to on-premise Active Directory.  
+1. Here is what Entra Connect looks like before it is connected to on-premises Active Directory.  
    **Key settings:**  
    Last sync: Has never run  
    Password Hash Synch: Disabled  
-   Seemless single sign-on: Disabled 0 domains  
+   Seamless single sign-on: Disabled 0 domains  
    
     ![image](https://github.com/user-attachments/assets/d87537bc-585b-4206-aecd-52507ae6d753)
 
@@ -56,7 +56,7 @@
 
 9. Enter username for **Connect to Microsoft Entra ID**.
 
-10. Enter the **Forest**, and get the system to create a new AD account with required permissions for periodic sychronization.  
+10. Enter the **Forest**, and get the system to create a new AD account with required permissions for periodic synchronization.  
 
     ![image](https://github.com/user-attachments/assets/c607a3e9-5e6f-45c7-a67e-96d159a114f6)
 
@@ -82,12 +82,12 @@
     ![image](https://github.com/user-attachments/assets/05292185-7cdb-4e34-99e6-be4631b204a4)
 
 16. Accept **Password hash synchronization**.  Add **Password writeback** and **Group writeback**.  
-    **Password writeback** allows users to reset the passwords in Entra ID, and then those passwords are written back to on-premise AD.  
-    **Group writeback** allows groups from Entra ID (espectially Microsoft 365 groups) to be synchronized to on-premise AD. The groups will appear as universal distribution groups in AD.  P1 or P2 license is required (the lab environment uses P1 license currently).
+    **Password writeback** allows users to reset the passwords in Entra ID, and then those passwords are written back to on-premises AD.  
+    **Group writeback** allows groups from Entra ID (especially Microsoft 365 groups) to be synchronized to on-premises AD. The groups will appear as universal distribution groups in AD.  P1 or P2 license is required (the lab environment uses P1 license currently).
 
     ![image](https://github.com/user-attachments/assets/cb2c7e6a-d19d-406e-8b7f-bc50bfe91f17)
 
-17. Specify **Group writeback** destination in on-premise AD. This step is a simulation if the lab AD had an Exchange scheme.  
+17. Specify **Group writeback** destination in on-premises AD. This step is a simulation if the lab AD had an Exchange scheme.  
 
      ![image](https://github.com/user-attachments/assets/1c841f5d-e2b4-469b-a7aa-a062ba358cf4)
 
@@ -109,8 +109,8 @@
 1. Here is what Entra Connect looks like after it is connected to Active Directory (running on a VMWare machine in my home lab).  
    **Key settings**:  
    Last sync: Less than 1 hour ago  
-   Password Hash Synch: Eanbled  
-   Seemless single sign-on: Enabled 1 domains  
+   Password Hash Synch: Enabled  
+   Seamless single sign-on: Enabled 1 domains  
    
 
     ![image](https://github.com/user-attachments/assets/ab179ce0-4b0f-43b6-b155-481e6991ac93)
@@ -119,7 +119,7 @@
 
      ![image](https://github.com/user-attachments/assets/8ac94978-15db-42e8-9c26-6ef2ce2d51db)
 
-3. Check accounts that were synchronized from on-premise AD to Entra.  
+3. Check accounts that were synchronized from on-premises AD to Entra.  
    **Test Users**  
 
      ![image](https://github.com/user-attachments/assets/0c7afb94-96da-4ed5-86ce-ea493fd724fd)
