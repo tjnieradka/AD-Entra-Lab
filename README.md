@@ -10,11 +10,11 @@ This lab is for **demo and educational purposes** only -- **not meant for produc
 
 This repository contains step-by-step instructions to:
 
-- Deploy an **Active Directory domain** (`tntechdemo01.com`)
-- Configure a **VyOS router** to isolate zones (LAN, DMZ, WAN)
-- Set up **Microsoft Entra Connect** for directory synchronization
-- Test Entra-integrated authentication from Windows and Linux clients
-- Simulate real-world hybrid join, conditional access, and web services
+- Deploy an **Active Directory domain** (`tntechdemo01.com`).
+- Configure a **VyOS router** to isolate zones (LAN, DMZ, WAN).
+- Set up **Microsoft Entra Connect** for directory synchronization.
+- Test Entra-integrated authentication from Windows and Linux clients.
+- Simulate real-world hybrid join, conditional access, and web services.
 
 ---
 
@@ -72,8 +72,8 @@ This lab setup was inspired by:
 
 This repository is released under **Creative Commons CC BY-NC-ND 4.0**.
 
--  You may share this for non-commercial educational purposes
--  You may not modify or use it commercially without permission
+-  You may share this for non-commercial educational purposes.
+-  You may not modify or use it commercially without permission.
 
 ---
 
