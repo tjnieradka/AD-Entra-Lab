@@ -42,7 +42,7 @@
 
     ![image](https://github.com/user-attachments/assets/2204b6f5-6d76-415b-b116-ab85297f6a07)
 
-4. This lab will have only has one domain controller, and the highest available functional level in thiz wizard is **Windows 2016**.  If there were domain controllers with earlier versions of Windows, the function level would be selected to match these earlier version domain controllers. **DSRM password** is entered in case a restore is needded from backup.
+4. This lab will have only has one domain controller, and the highest available functional level in this wizard is **Windows 2016**.  If there were domain controllers with earlier versions of Windows, the function level would be selected to match these earlier version domain controllers. **DSRM password** is entered in case a restore is needed from backup.
 
      ![image](https://github.com/user-attachments/assets/89b03d4c-7fed-4088-973a-c79eccb221b0)
 
@@ -78,7 +78,7 @@
 
      ![image](https://github.com/user-attachments/assets/3deaa2b1-5dcb-44d7-bbbf-587807c0d934)
 
-10.  The installation will proceed and the server will reboot.
+10.  The installation will proceed, and the server will reboot.
 
 11.  Verify configuration after reboot.
 
@@ -88,7 +88,7 @@
 
      ![image](https://github.com/user-attachments/assets/5c7c3928-73af-409e-a68b-4143801c72c6)
 
-14. In **Tools > Active Directory Users and Computers**, note the initial configuration.  This on-premise Active Directory will be configured later.
+14. In **Tools > Active Directory Users and Computers**, note the initial configuration.  This on-premises Active Directory will be configured later.
 
     ![image](https://github.com/user-attachments/assets/043f9e04-7b69-4870-b4f8-4b4eecf7c980)
 
