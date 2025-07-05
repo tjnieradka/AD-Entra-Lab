@@ -1,6 +1,6 @@
 ⚠️ This lab is for demonstration only; not for production.
 
-# 02.VyOS Router Setup
+# 02. VyOS Router Setup
 
 ## 1. Introduction
 
@@ -12,7 +12,7 @@ Official documentation (rolling & 1.3):
 
 ## 2. Overview VyOS 1.3 Configuration  
 
-The following configurations were done on VyOS for the lab.  Note that some of the settings were done because this is a lab where VMware environment is shut down when not in use (ie., this is not a production system that stays online all the time).  Some rulesets where done to allow various tests (e.g., ICMP was enabled to allow pings and debugging).
+The following configurations were done on VyOS for the lab.  Note that some of the settings were done because this is a lab where VMware environment is shut down when not in use (i.e., this is not a production system that stays online all the time).  Some rulesets were done to allow various tests (e.g., ICMP was enabled to allow pings and debugging).
 
 **1. Interfaces**  
 
@@ -35,7 +35,7 @@ These interfaces are mapped to separate VMware virtual networks (or VLANs) to si
 **2. Masquerading**  
 Two masquerade rulesets were set up.
 Masquerading is a type of Network Address Translation (NAT) that allows internal devices (in LAN or DMZ) to access the internet by sharing the VyOS router's WAN IP address.
-It rewrites the source IP of outgoing packets to match the WAN interface IP.  In the this lab, it enables internet passthrough for VMs in 192.168.10.0/24 (LAN) and 192.168.20.0/24 (DMZ).
+It rewrites the source IP of outgoing packets to match the WAN interface IP.  In this lab, it enables internet passthrough for VMs in 192.168.10.0/24 (LAN) and 192.168.20.0/24 (DMZ).
 
 **3. Zone-based Firewalls**  
 The configuration in the VyOS uses zone-based firewalling to organize interfaces into security zones and control traffic between them.
@@ -44,12 +44,12 @@ eth0 → WAN
 eth1 → LAN
 eth2 → DMZ
 
-Default policy is set to drop.  All traffic between zones is denied by default. The firewall rules need to explictly to allow traffic (e.g., LAN to WAN).
+Default policy is set to drop.  All traffic between zones is denied by default. The firewall rules need to allow traffic explicitly (e.g., LAN to WAN).
 This follows the principle of least privilege, ensuring only approved traffic is allowed between zones.
 
 **4. Firewall Rulesets**  
 The firewall rules are set up in this pattern:
-- First rule has the default action to deny traffic. Allowed traffic is explicity defined in later rulesets.
+- First rule has the default action to deny traffic. Allowed traffic is explicitly defined in later rulesets.
 - Second ruleset (i.e., labelled as 10) allows traffic for returning or related connections.
 - Additional rulesets define the protocol and destination ports that allow traffic.
 - Final command is to apply firewall configuration.
@@ -78,11 +78,11 @@ In real deployments:
 - Traffic to the WAN should be monitored and tightly scoped.
 
 **6. Ipv6**  
-IPv6 fowarding is disabled.
+IPv6 forwarding is disabled.
 
 
 ## 3. VyOS 1.3 Configuration
-The following are commands used to configure the VyOS router and firewall for the lab. The main objective is to allow connectivity between the on-premise Active Directory and Entra.  
+The following are commands used to configure the VyOS router and firewall for the lab. The main objective is to allow connectivity between the on-premises Active Directory and Entra.  
 ```
 # Interfaces
 set interfaces ethernet eth0 address dhcp
