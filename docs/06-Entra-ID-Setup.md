@@ -31,7 +31,7 @@
 
    ![image](https://github.com/user-attachments/assets/c90b88dd-bf44-4352-9781-50c212ad5386)
 
-6. Normally "tntechdemo01.com" UPN would be added to **Active Directory Domains and Trusts** on the AD Domain Controller VANDC1-W2022.  However, the on-premise AD is already set up as "tntechdemo01.com" so this is probably not necessary.
+6. Normally "tntechdemo01.com" UPN would be added to **Active Directory Domains and Trusts** on the AD Domain Controller VANDC1-W2022.  However, the on-premises AD is already set up as "tntechdemo01.com" so this is probably not necessary.
    When test users UPNs will be in this format: user@tntechdemo01.com
    
    ![image](https://github.com/user-attachments/assets/cb8a34bf-4283-4b00-b4de-9c00cdbb8365)
