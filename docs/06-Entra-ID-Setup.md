@@ -18,7 +18,7 @@
 
 1. In the **Microsoft Entra admin center** (https://entra.microsoft.com/), go to **Identity > Settings > Domain Names**.
 
-   ![image](https://github.com/user-attachments/assets/785df1bf-6261-44a8-8ec2-0d300f95185b)
+   ![image](https://github.com/user-attachments/assets/23aaefcd-38d7-4630-aa17-1173efa55ed4)
 
 2. Select to **Add Custom Domain Name** and enter the domain.
 
