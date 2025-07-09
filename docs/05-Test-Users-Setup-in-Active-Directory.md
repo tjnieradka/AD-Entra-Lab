@@ -27,11 +27,13 @@
 
    ![image](https://github.com/user-attachments/assets/3bb022e7-a997-475a-901d-bd4169a225bb)
 
-2. For the initial setup, we'll create test users manually.  Due to limited Entra licenses for this lab, we can create three users for synchronization to Entra.
+2. For the initial setup, we'll create test users manually.  Due to limited Entra licenses for this lab, we can create three users for synchronization to Entra.  
+   
+   **Note:** All user accounts shown in screenshots are fictional and created for lab demonstration purposes only.  
 
    ![image](https://github.com/user-attachments/assets/9f21bed2-d24f-452e-ac78-d9c1ef40958e)
 
-3. Create test groups.  Global groups will be set up for sync to Entra. 
+4. Create test groups.  Global groups will be set up for sync to Entra. 
 
 ![image](https://github.com/user-attachments/assets/1a04249c-0a1e-46d5-8a28-388c954ad303)
 
