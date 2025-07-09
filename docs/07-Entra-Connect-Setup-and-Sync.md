@@ -10,7 +10,8 @@
    Password Hash Synch: Disabled  
    Seamless single sign-on: Disabled 0 domains  
    
-    ![image](https://github.com/user-attachments/assets/d87537bc-585b-4206-aecd-52507ae6d753)
+    ![image](https://github.com/user-attachments/assets/42e4d055-3ad1-42a7-b2ee-76242292afda)
+
 
 3. Download Connect Sync Agent from **Microsoft Entra admin center > Hybrid management > Microsoft Entra Connect**.
 
@@ -120,11 +121,12 @@
      ![image](https://github.com/user-attachments/assets/8ac94978-15db-42e8-9c26-6ef2ce2d51db)
 
 3. Check accounts that were synchronized from on-premises AD to Entra.  
+   **Note:** All user accounts shown in the screenshots are fictional and created for lab demonstration purposes only.  
    **Test Users**  
 
      ![image](https://github.com/user-attachments/assets/0c7afb94-96da-4ed5-86ce-ea493fd724fd)
 
-     ![image](https://github.com/user-attachments/assets/74d909ac-6367-44e9-b35a-1388080f271b)
+     ![image](https://github.com/user-attachments/assets/ddd2e3da-d328-401c-a693-6ad64c69a039)
 
    **Test Groups**  
      ![image](https://github.com/user-attachments/assets/e333d0ee-5606-4e05-b3fa-45119309cc35)
