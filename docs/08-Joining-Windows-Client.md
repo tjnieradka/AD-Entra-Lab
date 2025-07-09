@@ -4,12 +4,14 @@
 
 ## 1. Configure Network Settings
 
-1. The client is already DHCP-enabled and is getting network settings from DHCP.  IPv6 was disabled in Ethernet connection properties.
+1. The client is already DHCP-enabled and is getting network settings from DHCP.  IPv6 was disabled in Ethernet connection properties.  
+
+   **Note** MAC address shown is auto-generated for virtual machines in a private lab environment.
 
    ![image](https://github.com/user-attachments/assets/7be8e610-2af4-4d7e-8017-0de0e7995b16)
 
 
-2. Rename system to VANCL1-W11.
+3. Rename system to VANCL1-W11.
 
    ![image](https://github.com/user-attachments/assets/5c6ad9a9-d1e0-4dd7-85f8-051d6d1b4e5d)
 
