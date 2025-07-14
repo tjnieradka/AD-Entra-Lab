@@ -53,7 +53,8 @@ Machines start with 'VAN' to indicate they are located in Vancouver.
 
 - The diagram below provides an overview of the network topology.
 
-![image](https://github.com/user-attachments/assets/f735ccd2-b936-4f7a-8be6-0008baa569c2)
+ <img width="1108" height="712" alt="image" src="https://github.com/user-attachments/assets/31cd702a-ef71-4d76-b6dd-8b7663767e5a" />
+
 
 ## 6. VMware Setup
 
