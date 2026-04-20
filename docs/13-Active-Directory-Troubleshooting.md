@@ -96,11 +96,15 @@ This reference summarizes commonly used Active Directory troubleshooting tools a
 
 ## 7. Entra Connect / Hybrid Sync
 
-| Tool / Command                                     | Purpose                                  | Where to Use         | When to Use        | Notes                        |
+
+
+| Tool / PowerShell Command                                     | Purpose                                  | Where to Use         | When to Use        | Notes                        |
 | -------------------------------------------------- | ---------------------------------------- | -------------------- | ------------------ | ---------------------------- |
 | Synchronization Service Manager (`miisclient.exe`) | View sync operations, errors, connectors | Entra Connect Server | User not syncing   | Check Operations + Metaverse |
 | `Start-ADSyncSyncCycle -PolicyType Delta`          | Trigger sync                             | Entra Connect Server | Sync delays        | Most common manual trigger   |
 | `Get-ADSyncScheduler`                              | View sync schedule                       | Entra Connect Server | Verify sync timing | Confirms automation          |
+| `Restart-Service ADSync`                              | Restart sync service                     | Entra Connect Server | Restart sync | Try in case of sync failures    |
+
 
 
 ## 8. Entra Connect Synchronization (miisclient)
