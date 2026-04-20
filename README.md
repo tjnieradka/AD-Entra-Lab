@@ -33,6 +33,8 @@ AD-Entra-Lab/
 │ ├─ 09-Joining-Linux-Client.md  
 │ ├─ 10-Test-Linux-Web-Server-in-DMZ-Setup.md  
 │ ├─ 11-Testing Scenarios-TBA.md # Work in progress  
+│ ├─ 12-Network-Troubleshooting.md # Work in progress  
+│ ├─ 13-Active-Directory-Troubleshooting.md # Work in progress  
 │ └─ ... more steps coming  
 
 ---
