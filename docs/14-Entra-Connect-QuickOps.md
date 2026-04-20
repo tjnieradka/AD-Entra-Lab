@@ -9,7 +9,7 @@ This section documents operational tasks and troubleshooting techniques for Micr
 
 To streamline common administrative tasks, I created a PowerShell menu-based tool:
 
-scripts/Entra-Connect-QuickOps.ps1
+[scripts/Entra-Connect-QuickOps.ps1](https://github.com/tjnieradka/AD-Entra-Lab/blob/main/scripts/Entra-Connect-QuickOps.ps1)
 
 This tool simplifies:
 
