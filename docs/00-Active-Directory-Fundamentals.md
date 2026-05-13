@@ -15,17 +15,34 @@ Active Directory is a directory service that provides centralized authentication
 
 A domain is a security boundary that contains users, computers, and resources managed centrally.
 
+- Has its own:  
+-- Users, groups, computers  
+-- Policies (GPOs)  
+-- Uses a DNS name (e.g., `tntechdemo01.com` )  
+-- Authentication happens within the domain  
+
 ---
 
 ## Tree
 
 A tree is a group of domains that share a contiguous namespace.
 
+Examples:  
+`tntechdemo01.com`  
+`corp.tntechdemo01.com`  
+- The same namespace so they are part of the same tree.
+
 ---
 
 ## Forest
 
 A forest is the top-level structure in Active Directory that contains one or more trees and defines the overall security boundary.
+
+Forest = highest level  
+Shares:  
+- Schema (object definitions)  
+- Configuration  
+- Domains in a forest trust each other  
 
 ---
 
