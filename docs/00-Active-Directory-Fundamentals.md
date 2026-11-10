@@ -1,6 +1,4 @@
 
-**Update in progress**
-
 # 00. Active Directory Fundamentals
 
 ## 1. Overview
