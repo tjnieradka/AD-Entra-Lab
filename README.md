@@ -65,20 +65,22 @@ AD-Entra-Lab/
 
 ##  Learning Sources
 
-This lab setup was inspired by:
+This lab was developed using hands-on experimentation, prior systems administration experience, training materials, and vendor documentation. Key references include:
 
--  **Udemy Training**: _SC-300 Microsoft Identity and Access Administrator Practice Labs_
--  **Microsoft Learn**: [Hybrid Identity Documentation](https://learn.microsoft.com/en-us/entra/identity/hybrid/)
--  Personal Experience in systems administration, data centers, and identity integration
+- **Microsoft Learn — Active Directory Domain Services:** Concepts and administration of Active Directory Domain Services, DNS integration, domain controllers, and related services.  
+- **Microsoft Learn — Microsoft Entra ID:** Identity administration, authentication, users, groups, and hybrid identity concepts.  
+- **Microsoft Learn — Microsoft Entra Connect:** Installation, configuration, and synchronization of on-premises Active Directory identities with Microsoft Entra ID.  
+- **Microsoft Learn — Microsoft 365 Administration:** Microsoft 365 users, licensing, administrative portals, and service administration.  
+- **Microsoft Learn — Microsoft Intune:** Device enrollment, compliance, configuration, and endpoint-management concepts.  
+- **VyOS Documentation:** Routing, NAT, interfaces, and firewall configuration.  
+- **Udemy Training — SC-300 Microsoft Identity and Access Administrator Practice Labs:** Guided exercises used as part of the initial identity lab work.  
+- **Hands-on lab testing and troubleshooting:** Configuration, validation, and troubleshooting performed within the virtualized lab environment.  
 
 ---
 
 ##  License
 
-This repository is released under **Creative Commons CC BY-NC-ND 4.0**.
-
--  You may share this for non-commercial educational purposes.
--  You may not modify or use it commercially without permission.
+This repository is licensed under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. See LICENSE.md for details.
 
 ---
 
