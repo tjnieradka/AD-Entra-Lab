@@ -21,7 +21,8 @@ This repository contains step-by-step instructions to:
 ## Repository Structure  
 
 AD-Entra-Lab/  
-├─ [docs](https://github.com/tjnieradka/AD-Entra-Lab/tree/main/docs)/ # Lab walkthroughs  
+├─ [docs](https://github.com/tjnieradka/AD-Entra-Lab/tree/main/docs)/ # Lab walkthroughs    
+│ ├─ 00-Active-Directory-Fundamentals.md  
 │ ├─ 01-Environment-Overview.md # Network topology  
 │ ├─ 02-VyOS-Router_Setup.md  
 │ ├─ 03-Active-Directory-and-DNS-Setup.md  
@@ -34,7 +35,9 @@ AD-Entra-Lab/
 │ ├─ 10-Test-Linux-Web-Server-in-DMZ-Setup.md  
 │ ├─ 11-Testing Scenarios-TBA.md # Work in progress  
 │ ├─ 12-Network-Troubleshooting.md # Work in progress  
-│ ├─ 13-Active-Directory-Troubleshooting.md # Work in progress  
+│ ├─ 13-Active-Directory-Troubleshooting.md  
+│ ├─ 14-Entra-Connect-QuickOps.md  
+│ ├─ 15-Microsoft-365-Administration.md  
 │ └─ ... more steps coming  
 
 ---
