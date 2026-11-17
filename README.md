@@ -38,7 +38,7 @@ AD-Entra-Lab/
 │ ├─ 13-Active-Directory-Troubleshooting.md  
 │ ├─ 14-Entra-Connect-QuickOps.md  
 │ ├─ 15-Microsoft-365-Administration.md  
-│ ├─ 16-Windows-Client-Troubleshooting.md
+│ ├─ 16-Windows-Client-Troubleshooting.md  
 │ └─ ... more steps coming  
 
 ---
