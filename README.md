@@ -33,11 +33,12 @@ AD-Entra-Lab/
 │ ├─ 08-Joining-Windows-Client.md  
 │ ├─ 09-Joining-Linux-Client.md  
 │ ├─ 10-Test-Linux-Web-Server-in-DMZ-Setup.md  
-│ ├─ 11-Testing Scenarios-TBA.md # Work in progress  
-│ ├─ 12-Network-Troubleshooting.md # Work in progress  
+│ ├─ 11-Testing Scenarios-TBA.md # TBA
+│ ├─ 12-Network-Troubleshooting.md # TBA
 │ ├─ 13-Active-Directory-Troubleshooting.md  
 │ ├─ 14-Entra-Connect-QuickOps.md  
 │ ├─ 15-Microsoft-365-Administration.md  
+│ ├─ 16-Windows-Client-Troubleshooting.md
 │ └─ ... more steps coming  
 
 ---
