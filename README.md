@@ -85,12 +85,6 @@ This repository is licensed under the Creative Commons Attribution-NonCommercial
 
 ---
 
-## Contact
-
-Created and maintained by **Thomas Nieradka**
-
-- GitHub: [@tjnieradka](https://github.com/tjnieradka)
-- LinkedIn: [linkedin.com/in/thomas-nieradka](https://www.linkedin.com/in/thomas-nieradka))
 
 ---
 
