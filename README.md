@@ -18,28 +18,31 @@ This repository contains step-by-step instructions to:
 
 ---
 
-## Repository Structure  
+## Documentation and Scripts
 
-AD-Entra-Lab/  
-├─ [docs](https://github.com/tjnieradka/AD-Entra-Lab/tree/main/docs)/ # Lab walkthroughs    
-│ ├─ 00-Active-Directory-Fundamentals.md  
-│ ├─ 01-Environment-Overview.md # Network topology  
-│ ├─ 02-VyOS-Router_Setup.md  
-│ ├─ 03-Active-Directory-and-DNS-Setup.md  
-│ ├─ 04-DHCP-Server-Setup.md  
-│ ├─ 05-Test-Users-Setup-in-Active-Directory.md   
-│ ├─ 06-Entra-ID-Setup.md  
-│ ├─ 07-Entra-Connect-Setup-and-Sync.md  
-│ ├─ 08-Joining-Windows-Client.md  
-│ ├─ 09-Joining-Linux-Client.md  
-│ ├─ 10-Test-Linux-Web-Server-in-DMZ-Setup.md  
-│ ├─ 11-Testing Scenarios-TBA.md # TBA  
-│ ├─ 12-Network-Troubleshooting.md # TBA  
-│ ├─ 13-Active-Directory-Troubleshooting.md  
-│ ├─ 14-Entra-Connect-QuickOps.md  
-│ ├─ 15-Microsoft-365-Administration.md  
-│ ├─ 16-Windows-Client-Troubleshooting.md  
-│ └─ ... more steps coming  
+### Documentation
+
+1. [Active Directory Fundamentals](docs/00-Active-Directory-Fundamentals.md)
+2. [Environment Overview and Network Topology](docs/01-Environment-Overview.md)
+3. [VyOS Router Setup](docs/02-VyOS-Router_Setup.md)
+4. [Active Directory and DNS Setup](docs/03-Active-Directory-and-DNS-Setup.md)
+5. [DHCP Server Setup](docs/04-DHCP-Server-Setup.md)
+6. [Test Users Setup in Active Directory](docs/05-Test-Users-Setup-in-Active-Directory.md)
+7. [Microsoft Entra ID Setup](docs/06-Entra-ID-Setup.md)
+8. [Entra Connect Setup and Synchronization](docs/07-Entra-Connect-Setup-and-Sync.md)
+9. [Joining a Windows Client](docs/08-Joining-Windows-Client.md)
+10. [Joining a Linux Client](docs/09-Joining-Linux-Client.md)
+11. [Linux Web Server in DMZ Setup](docs/10-Test-Linux-Web-Server-in-DMZ-Setup.md)
+12. [Testing Scenarios — To Be Added](docs/11-Testing%20Scenarios-TBA.md)
+13. [Network Troubleshooting](docs/12-Network-Troubleshooting.md)
+14. [Active Directory Troubleshooting](docs/13-Active-Directory-Troubleshooting.md)
+15. [Entra Connect Quick Operations](docs/14-Entra-Connect-QuickOps.md)
+16. [Microsoft 365 Administration](docs/15-Microsoft-365-Administration.md)
+17. [Windows Client Troubleshooting](docs/16-Windows-Client-Troubleshooting.md)
+
+### PowerShell Scripts
+
+- [Entra Connect Quick Operations (PowerShell)](scripts/Entra-Connect-QuickOps.ps1) — Script for Entra Connect management tasks.
 
 ---
 
