@@ -42,7 +42,7 @@ This repository contains step-by-step instructions to:
 
 ### PowerShell Scripts
 
-- [Entra Connect Quick Operations (PowerShell)](scripts/Entra-Connect-QuickOps.ps1) — Script for Entra Connect management tasks.
+- [Entra Connect Quick Operations (PowerShell)](scripts/Entra-Connect-QuickOps.ps1) — Script for Entra Connect management tasks. See 15. [Entra Connect Quick Operations](docs/14-Entra-Connect-QuickOps.md)
 
 ---
 
