@@ -1,24 +1,37 @@
-## AD–Entra Hybrid Lab (Demo)
+# AD–Entra Hybrid Lab
 
-A hands-on lab designed to demonstrate **hybrid identity integration** between **on-premises Active Directory (AD DS)** and **Microsoft Entra ID**, including Entra Connect, basic routing with VyOS, and various identity features.
+A hands-on lab demonstrating **hybrid identity integration** between on-premises **Active Directory Domain Services (AD DS)** and **Microsoft Entra ID**, with network segmentation using VyOS and Windows and Linux test systems.
 
-This lab is for **demo and educational purposes** only -- **not meant for production**.
-
----
-
-## Overview
-
-This repository contains step-by-step instructions to:
-
-- Deploy an **Active Directory domain** (`tntechdemo01.com`).
-- Configure a **VyOS router** to isolate zones (LAN, DMZ, WAN).
-- Set up **Microsoft Entra Connect** for directory synchronization.
-- Test Entra-integrated authentication from Windows and Linux clients.
-- Simulate real-world hybrid join, conditional access, and web services.
+This is an educational demonstration environment, **not a production deployment guide**.
 
 ---
 
-## Documentation and Scripts
+## 1. Overview
+
+The lab documents how to:
+
+- Deploy an Active Directory domain (`tntechdemo01.com`) and supporting DNS and DHCP services.
+- Configure a VyOS router to separate LAN, DMZ, and WAN zones.
+- Configure Microsoft Entra Connect for directory synchronization.
+- Join and test Windows and Linux clients in the lab environment.
+- Explore hybrid identity features, Microsoft 365 administration, and troubleshooting.
+- Configure a Linux web server in the DMZ for connectivity testing.
+
+---
+
+## 2. Technologies and Tools
+
+- **Identity:** Active Directory DS, Microsoft Entra ID, Microsoft Entra Connect
+- **Servers:** Windows Server 2022 (domain controller and Entra Connect)
+- **Clients:** Windows 11 and Ubuntu Desktop 20.04
+- **Web server:** Ubuntu 20.04
+- **Networking:** VyOS 1.3 (routing, firewall, NAT)
+- **Virtualization:** VMware Workstation
+- **Administration:** PowerShell and Windows/Linux diagnostic tools
+
+---
+
+## 3. Documentation and Scripts
 
 ### Documentation
 
@@ -42,53 +55,36 @@ This repository contains step-by-step instructions to:
 
 ### PowerShell Scripts
 
-- [Entra Connect Quick Operations (PowerShell)](scripts/Entra-Connect-QuickOps.ps1) — Script for Entra Connect management tasks. See 15. [Entra Connect Quick Operations](docs/14-Entra-Connect-QuickOps.md)
+- [Entra Connect Quick Operations (PowerShell)](scripts/Entra-Connect-QuickOps.ps1) — Management tasks described in the [Entra Connect Quick Operations guide](docs/14-Entra-Connect-QuickOps.md).
 
 ---
 
-## Technologies Used
+## 4. Lab Environment and Scope
 
-- Microsoft Entra ID (formerly Azure AD)
-- Windows Server 2022 (Domain Controller, Entra Connect)
-- Windows 11 (test client)
-- Ubuntu Desktop 20.04 (Linux test client)
-- Ubuntu 20.04 (Linux test Web server)
-- VyOS 1.3 (router with zone-based firewall & NAT)
-- Virtualization via VMware Workstation
+The lab runs in a **local, virtualized environment** with simplified routing and firewall configurations. The [Environment Overview and Network Topology](docs/01-Environment-Overview.md) documents the design.
+
+- Use only test accounts and non-sensitive data.
+- Some services, including HTTP access to the DMZ web server, are intentionally exposed for testing.
+- Production security hardening, certificate-based authentication, and other production controls are not fully implemented.
 
 ---
 
-##  Important Notes
+## 5. Project Status
 
-- This lab is built in a **local, virtualized environment**. Do **not** use real credentials or sensitive info.
-- **Firewall rules and routing settings** are simplified for demonstration.
-- Certain services (e.g., HTTP access to DMZ server) are intentionally left open to simulate access scenarios.
-- **Security hardening, certificate-based auth, and production controls are not applied.**
+The repository contains setup walkthroughs, administration notes, and troubleshooting documentation. Additional testing scenarios are identified as planned where applicable. Screenshots are embedded directly in the existing Markdown guides.
 
 ---
 
-##  Learning Sources
+## 6. References and Learning Resources
 
-This lab was developed using hands-on experimentation, prior systems administration experience, training materials, and vendor documentation. Key references include:
+The lab draws on hands-on experimentation, prior systems administration experience, vendor documentation, and training materials:
 
-- **Microsoft Learn — Active Directory Domain Services:** Concepts and administration of Active Directory Domain Services, DNS integration, domain controllers, and related services.  
-- **Microsoft Learn — Microsoft Entra ID:** Identity administration, authentication, users, groups, and hybrid identity concepts.  
-- **Microsoft Learn — Microsoft Entra Connect:** Installation, configuration, and synchronization of on-premises Active Directory identities with Microsoft Entra ID.  
-- **Microsoft Learn — Microsoft 365 Administration:** Microsoft 365 users, licensing, administrative portals, and service administration.  
-- **Microsoft Learn — Microsoft Intune:** Device enrollment, compliance, configuration, and endpoint-management concepts.  
-- **VyOS Documentation:** Routing, NAT, interfaces, and firewall configuration.  
-- **Udemy Training — SC-300 Microsoft Identity and Access Administrator Practice Labs:** Guided exercises used as part of the initial identity lab work.  
-- **Hands-on lab testing and troubleshooting:** Configuration, validation, and troubleshooting performed within the virtualized lab environment.  
+- **Microsoft Learn — Active Directory Domain Services:** Domain controllers, DNS integration, and administration.
+- **Microsoft Learn — Microsoft Entra ID:** Identity administration, authentication, users, and groups.
+- **Microsoft Learn — Microsoft Entra Connect:** Directory synchronization and hybrid identity.
+- **Microsoft Learn — Microsoft 365 Administration:** Users, licensing, and administrative portals.
+- **Microsoft Learn — Microsoft Intune:** Device enrollment, compliance, and endpoint management.
+- **VyOS Documentation:** Routing, NAT, interfaces, and firewall configuration.
+- **Udemy — SC-300 Microsoft Identity and Access Administrator Practice Labs:** Guided exercises informing the initial identity lab work.
 
----
-
-##  License
-
-This repository is licensed under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. See LICENSE.md for details.
-
----
-
-
----
-
-
+Configuration, validation, and troubleshooting examples are documented from the virtualized lab environment.
